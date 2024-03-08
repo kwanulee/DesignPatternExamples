@@ -4,8 +4,7 @@ package observer.weatherStationObserverPattern
 fun main() {
     val weatherData = WeatherData()
 
-    val currentDisplay =
-        CurrentConditionsDisplay(weatherData)
+    val currentDisplay = CurrentConditionsDisplay(weatherData)
     val statisticsDisplay = StatisticsDisplay(weatherData)
     val forecastDisplay = ForecastDisplay(weatherData)
 
