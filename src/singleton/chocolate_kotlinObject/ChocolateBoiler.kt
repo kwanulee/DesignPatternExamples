@@ -1,10 +1,8 @@
 package singleton.chocolate_kotlinObject
 
 object ChocolateBoiler  {
-    var isEmpty: Boolean = true
-        private set
-    var isBoiled: Boolean = false
-        private set
+    private var isEmpty: Boolean = true
+    private var isBoiled: Boolean = false
 
     init {
         println("Creating unique instance of Chocolate Boiler")

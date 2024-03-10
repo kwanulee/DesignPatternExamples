@@ -4,7 +4,7 @@ package singleton.chocolate_static
 fun main(args: Array<String>) {
     val thread1: Thread = object : Thread() {
         override fun run() {
-            val boiler: ChocolateBoiler = ChocolateBoiler.instance
+            val boiler = ChocolateBoiler.getInstance()
             boiler.fill()
             boiler.boil()
             boiler.drain()
@@ -13,7 +13,7 @@ fun main(args: Array<String>) {
 
     val thread2: Thread = object : Thread() {
         override fun run() {
-            val boiler: ChocolateBoiler = ChocolateBoiler.instance
+            val boiler = ChocolateBoiler.getInstance()
             boiler.fill()
             boiler.boil()
             boiler.drain()

@@ -1,10 +1,14 @@
 package singleton.chocolate_static
 
 class ChocolateBoiler private constructor() {
-    var isEmpty: Boolean = true
-        private set
-    var isBoiled: Boolean = false
-        private set
+
+    companion object {
+        private var uniqueInstance: ChocolateBoiler = ChocolateBoiler()
+        fun getInstance(): ChocolateBoiler = uniqueInstance
+    }
+
+    private var isEmpty: Boolean = true
+    private var isBoiled: Boolean = false
 
     init {
         println("Creating unique instance of Chocolate Boiler")
@@ -32,7 +36,4 @@ class ChocolateBoiler private constructor() {
         }
     }
 
-    companion object {
-        val instance: ChocolateBoiler = ChocolateBoiler()
-    }
 }

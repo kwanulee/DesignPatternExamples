@@ -1,10 +1,21 @@
 package singleton.chocolate_threadsafe
 
 class ChocolateBoiler private constructor() {
-    var isEmpty: Boolean = true
-        private set
-    var isBoiled: Boolean = false
-        private set
+
+    companion object {
+        private var uniqueInstance: ChocolateBoiler? = null
+
+        @Synchronized
+        fun getInstance(): ChocolateBoiler? {
+            if (uniqueInstance == null) {
+                uniqueInstance = ChocolateBoiler()
+            }
+            return uniqueInstance
+        }
+    }
+
+    private var isEmpty: Boolean = true
+    private var isBoiled: Boolean = false
 
     init {
         println("Creating unique instance of Chocolate Boiler")
@@ -30,18 +41,5 @@ class ChocolateBoiler private constructor() {
             // bring the contents to a boil
             isBoiled = true
         }
-    }
-
-    companion object {
-        private var uniqueInstance: ChocolateBoiler? = null
-
-        @get:Synchronized
-        val instance: ChocolateBoiler?
-            get() {
-                if (uniqueInstance == null) {
-                    uniqueInstance = ChocolateBoiler()
-                }
-                return uniqueInstance
-            }
     }
 }
