@@ -17,7 +17,8 @@ fun main(args: Array<String>) {
                 )
             )
 
-        while ((`in`.read().also { c = it }) >= 0) {
+        while ((`in`.read().also{c = it }) >= 0) {
+       // while ((c = `in`.read())>=0)
             print(c.toChar())
         }
 

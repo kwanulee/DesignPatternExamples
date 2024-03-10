@@ -13,7 +13,7 @@ class LowerCaseInputStream(`in`: InputStream?) : FilterInputStream(`in`) {
     override fun read(b: ByteArray, offset: Int, len: Int): Int {
         val result = `in`.read(b, offset, len)
         for (i in offset until offset + result) {
-            b[i] = Char(b[i].toUShort()).lowercaseChar().toByte()
+            b[i] = Char(b[i].toUShort()).lowercaseChar().code.toByte()
         }
         return result
     }
