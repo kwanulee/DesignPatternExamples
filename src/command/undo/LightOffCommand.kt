@@ -7,6 +7,6 @@ class LightOffCommand(var light: Light) : Command {
     }
 
     override fun undo() {
-        light.off()
+        light.on()
     }
 }
