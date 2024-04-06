@@ -6,11 +6,10 @@ class VenderFactory private constructor() {
     }
 
     companion object {
-        var instance: VenderFactory? = null
-            get() {
-                if (field == null) field = VenderFactory()
-                return field
-            }
-            private set
+        private var instance: VenderFactory? = null
+        fun getInstance() : VenderFactory? {
+            if (instance == null) instance = VenderFactory()
+            return instance
+        }
     }
 }
