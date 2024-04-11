@@ -25,6 +25,7 @@ class HomeTheaterFacade(
         dvd.on()
         dvd.setSurroundAudio()
         dvd.play(movie)
+        dvd.play(2)
     }
 
 
