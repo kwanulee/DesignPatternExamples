@@ -8,9 +8,7 @@ fun main(args: Array<String>) {
     var pizza = store.orderPizza("cheese")
     println("We ordered a $pizza\n")
 
-    //System.out.println(pizza);
     pizza = store.orderPizza("veggie")
     println("We ordered a $pizza\n")
-    //System.out.println(pizza);
 }
 
