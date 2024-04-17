@@ -3,6 +3,7 @@ package adapter.ObjectAdapterExample
 class VenderFactory private constructor() {
     fun createVender(): Vender {
         return VenderAdapter(Vender2())
+        //return ConcreteVender()
     }
 
     companion object {
