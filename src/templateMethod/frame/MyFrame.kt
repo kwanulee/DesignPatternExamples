@@ -16,13 +16,7 @@ class MyFrame(title: String?) : JFrame(title) {
         val msg = "I rule!!"
         graphics.drawString(msg, 100, 100)
     }
-
-    companion object {
-        private const val serialVersionUID = 2L
-
-        @JvmStatic
-        fun main(args: Array<String>) {
-            val myFrame = MyFrame("Head First Design Patterns")
-        }
-    }
+}
+fun main(args: Array<String>) {
+    val myFrame = MyFrame("Head First Design Patterns")
 }

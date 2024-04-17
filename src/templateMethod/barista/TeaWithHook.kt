@@ -7,26 +7,21 @@ import java.util.*
 
 
 class TeaWithHook : CaffeineBeverageWithHook() {
-    public override fun brew() {
+     override fun brew() {
         println("Steeping the tea")
     }
 
-    public override fun addCondiments() {
+     override fun addCondiments() {
         println("Adding Lemon")
     }
 
-    public override fun customerWantsCondiments(): Boolean {
-        val answer = userInput
+     override fun customerWantsCondiments(): Boolean {
+        val answer = getUserInput()
 
-        return if (answer.lowercase(Locale.getDefault()).startsWith("y")) {
-            true
-        } else {
-            false
-        }
+        return answer.lowercase(Locale.getDefault()).startsWith("y")
     }
 
-    private val userInput: String
-        get() {
+    private fun getUserInput() : String{
             // get the user's response
             var answer: String? = null
 

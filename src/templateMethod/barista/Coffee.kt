@@ -2,11 +2,11 @@ package templateMethod.barista
 
 
 class Coffee : CaffeineBeverage() {
-    public override fun brew() {
+    override fun brew() {
         println("Dripping Coffee through filter")
     }
 
-    public override fun addCondiments() {
+    override fun addCondiments() {
         println("Adding Sugar and Milk")
     }
 }
