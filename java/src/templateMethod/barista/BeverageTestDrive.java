@@ -19,8 +19,8 @@ public class BeverageTestDrive {
  
 		System.out.println("\nMaking tea...");
 		teaHook.prepareRecipe();
- 
 		System.out.println("\nMaking coffee...");
 		coffeeHook.prepareRecipe();
+
 	}
 }

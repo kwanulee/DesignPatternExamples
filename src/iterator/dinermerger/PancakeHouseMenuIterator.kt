@@ -4,7 +4,7 @@ class PancakeHouseMenuIterator(var items: ArrayList<MenuItem>) : Iterator {
     var position: Int = 0
 
     override fun next(): MenuItem? {
-        val item = items[position]
+        val item = items.get(position)
         position = position + 1
         return item
     }

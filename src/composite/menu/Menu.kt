@@ -16,12 +16,7 @@ class Menu(override var name: String, override var description: String) : MenuCo
     }
 
     override fun print() {
-        print(
-            """
-    
-    ${name}
-    """.trimIndent()
-        )
+        print("\n "+ name)
         println(", " + description)
         println("---------------------")
 

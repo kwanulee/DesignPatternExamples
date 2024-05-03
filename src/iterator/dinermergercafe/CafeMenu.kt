@@ -26,7 +26,7 @@ class CafeMenu : Menu {
         vegetarian: Boolean, price: Double
     ) {
         val menuItem = MenuItem(name, description, vegetarian, price)
-        menuItems[menuItem.name] = menuItem
+        menuItems.put(menuItem.name,menuItem)
     }
 
     val items: Map<String?, MenuItem>

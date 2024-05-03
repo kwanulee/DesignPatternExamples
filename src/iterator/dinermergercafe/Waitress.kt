@@ -1,5 +1,6 @@
 package iterator.dinermergercafe
 
+
 class Waitress(var menus: ArrayList<Menu>) {
     fun printMenu() {
         val menuIterator: Iterator<Menu> = menus.iterator()
@@ -8,6 +9,8 @@ class Waitress(var menus: ArrayList<Menu>) {
             println()
         }
     }
+
+
 
     private fun printMenu(iterator: Iterator<MenuItem?>?) {
         while (iterator!!.hasNext()) {
