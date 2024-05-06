@@ -1,6 +1,6 @@
 package composite.menu
 
-class Menu(override var name: String, override var description: String) : MenuComponent() {
+class Menu(private var name: String, private var description: String) : MenuComponent() {
     var menuComponents: ArrayList<MenuComponent> = ArrayList()
 
     override fun add(menuComponent: MenuComponent) {
@@ -13,6 +13,14 @@ class Menu(override var name: String, override var description: String) : MenuCo
 
     override fun getChild(i: Int): MenuComponent {
         return menuComponents[i]
+    }
+
+    override fun getName(): String {
+        return name
+    }
+
+    override fun getDescription(): String {
+        return description
     }
 
     override fun print() {
