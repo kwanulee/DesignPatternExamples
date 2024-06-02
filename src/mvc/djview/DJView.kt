@@ -7,29 +7,24 @@ import java.awt.event.ActionEvent
 import java.awt.event.ActionListener
 import javax.swing.*
 
-class DJView(var controller: ControllerInterface, model: BeatModelInterface) : ActionListener, BeatObserver,
-    BPMObserver {
-    var model: BeatModelInterface? = model
+class DJView(var controller: ControllerInterface, var model: BeatModelInterface)
+                                            : ActionListener, BeatObserver, BPMObserver {
+    init {
+        model.registerObserver(this as BeatObserver)
+        model.registerObserver(this as BPMObserver)
+    }
 
     override fun updateBPM() {
-        if (model != null) {
-            val bpm = model?.bPM
-            if (bpm == 0) {
-                if (bpmOutputLabel != null) {
-                    bpmOutputLabel!!.text = "offline"
-                }
-            } else {
-                if (bpmOutputLabel != null) {
-                    bpmOutputLabel!!.text = "Current BPM: " + model?.bPM
-                }
-            }
-        }
+            val bpm = model.getBPM()
+            if (bpm == 0)
+                    bpmOutputLabel?.text = "offline"
+            else
+                    bpmOutputLabel?.text = "Current BPM: " + model.getBPM()
     }
 
     override fun updateBeat() {
-        if (beatBar != null) {
-            beatBar!!.value = 100
-        }
+        beatBar?.value = 100
+
     }
 
     var viewFrame: JFrame? = null
@@ -69,10 +64,7 @@ class DJView(var controller: ControllerInterface, model: BeatModelInterface) : A
     var startMenuItem: JMenuItem? = null
     var stopMenuItem: JMenuItem? = null
 
-    init {
-        model.registerObserver(this as BeatObserver)
-        model.registerObserver(this as BPMObserver)
-    }
+
 
     fun createControls() {
         // Create all Swing components here

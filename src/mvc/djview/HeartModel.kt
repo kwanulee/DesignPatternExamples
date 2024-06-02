@@ -39,8 +39,7 @@ class HeartModel : HeartModelInterface, Runnable {
         }
     }
 
-    override val heartRate: Int
-        get() = 60000 / time
+    override fun getHeartRate() = 60000 / time
 
     override fun registerObserver(o: BeatObserver) {
         beatObservers.add(o)

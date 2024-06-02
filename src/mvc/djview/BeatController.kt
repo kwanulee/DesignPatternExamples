@@ -24,16 +24,16 @@ class BeatController(var model: BeatModelInterface) : ControllerInterface {
     }
 
     override fun increaseBPM() {
-        val bpm = model.bPM
-        model.bPM = bpm + 1
+        val bpm = model.getBPM()
+        model.setBPM(bpm + 1)
     }
 
     override fun decreaseBPM() {
-        val bpm = model.bPM
-        model.bPM = bpm - 1
+        val bpm = model.getBPM()
+        model.setBPM(bpm - 1)
     }
 
     override fun setBPM(bpm: Int) {
-        model.bPM = bpm
+        model.setBPM(bpm)
     }
 }

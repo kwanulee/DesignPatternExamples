@@ -7,7 +7,9 @@ interface BeatModelInterface {
 
     fun off()
 
-    var bPM: Int
+    fun getBPM(): Int
+
+    fun setBPM(bpm:Int)
 
     fun registerObserver(o: BeatObserver)
 

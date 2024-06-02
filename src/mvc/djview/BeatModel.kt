@@ -18,21 +18,21 @@ class BeatModel : BeatModelInterface, MetaEventListener {
 
     override fun on() {
         sequencer!!.start()
-        bPM = 90
+        setBPM(90)
     }
 
     override fun off() {
-        bPM = 0
+        setBPM(0)
         sequencer!!.stop()
     }
 
-    override var bPM: Int=0
-        get() = bpm
-        set(bpm) {
-            this.bpm = bpm
-            sequencer!!.tempoInBPM = field.toFloat()
-            notifyBPMObservers()
-        }
+    override fun setBPM(bpm: Int) {
+        this.bpm = bpm
+        sequencer!!.setTempoInBPM(getBPM().toFloat())
+        notifyBPMObservers()
+    }
+
+    override fun getBPM() = bpm
 
     fun beatEvent() {
         notifyBeatObservers()
@@ -80,7 +80,7 @@ class BeatModel : BeatModelInterface, MetaEventListener {
         if (message.type == 47) {
             beatEvent()
             sequencer!!.start()
-            bPM = bPM
+            setBPM(getBPM())
         }
     }
 
@@ -93,7 +93,7 @@ class BeatModel : BeatModelInterface, MetaEventListener {
             else println("addMetaEventListener(this) is success")
             sequence = Sequence(Sequence.PPQ, 4)
             track = sequence!!.createTrack()
-            sequencer!!.setTempoInBPM(bPM.toFloat())
+            sequencer!!.setTempoInBPM(getBPM().toFloat())
             sequencer!!.setLoopCount(Sequencer.LOOP_CONTINUOUSLY)
         } catch (e: Exception) {
             e.printStackTrace()

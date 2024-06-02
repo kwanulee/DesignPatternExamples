@@ -6,10 +6,12 @@ class HeartAdapter(var heart: HeartModelInterface) : BeatModelInterface {
     override fun on() {}
 
     override fun off() {}
+    override fun getBPM(): Int =
+        heart.getHeartRate()
 
-    override var bPM: Int
-        get() = heart.heartRate
-        set(bpm) {}
+    override fun setBPM(bpm: Int) {
+    }
+
 
     override fun registerObserver(o: BeatObserver) {
         heart.registerObserver(o)
