@@ -12,11 +12,9 @@ class MyRemoteClient {
             ex.printStackTrace()
         }
     }
-
-    companion object {
-        @JvmStatic
-        fun main(args: Array<String>) {
-            MyRemoteClient().go()
-        }
-    }
 }
+
+fun main(args: Array<String>) {
+    MyRemoteClient().go()
+}
+
